@@ -1,0 +1,12 @@
+name: cep_multi
+title: CEP_multi
+username: renanbisposilva
+account: renanbisposilva
+server: beta.rstudioconnect.com
+hostUrl: https://beta.rstudioconnect.com/__api__
+appId: 4414
+bundleId: 10186
+url: https://beta.rstudioconnect.com/content/4414/
+when: 1542305152.47264
+asMultiple: FALSE
+asStatic: FALSE

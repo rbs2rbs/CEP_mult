@@ -16,7 +16,7 @@ data("carbon1")
 # dados<-res[sample(1:nrow(res),100),]
 # colnames(dados)<-c("atr1","atr2","atr3")
 
-n=400    
+n=40    
     
 p=ncol(y);obs=nrow(y);m=obs/n
 if(n>1) {

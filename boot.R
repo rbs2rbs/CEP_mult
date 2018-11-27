@@ -9,15 +9,14 @@ data("carbon1")
       res<-rbind(res,m)
     }
     colnames(res)<-c('inner' ,'thickness' ,"length")
-
+dados<-y<-res
 # dados<-as.data.frame(readxl::read_excel('mangue.xlsx'))[,c(1,2,3)]
 # PASSO 1
 # dados<-apply(dados,2,as.numeric)
 # dados<-res[sample(1:nrow(res),100),]
 # colnames(dados)<-c("atr1","atr2","atr3")
 
-n=40    
-    
+n=5
 p=ncol(y);obs=nrow(y);m=obs/n
 if(n>1) {
   Sbarra=matrix(0,p,p); media=matrix(NA,m,p)
@@ -48,7 +47,7 @@ qt<-p*(m-1)*(n-1)*qf(0.95,p,m*n-m-p+1)/(m*n-m-p+1)
     tabX<-rbind(tabX,media)
   }
   
-  xbb<-apply(tab,2,mean)
+  xbb<-apply(tabX,2,mean)
   
   s<-s/reamos
   
@@ -59,11 +58,22 @@ qt<-p*(m-1)*(n-1)*qf(0.95,p,m*n-m-p+1)/(m*n-m-p+1)
   }
   
 
-  LS=quantile(tHot,.95);print(LS)
+  LS=quantile(tHot,.95);print(LS);qt
 #   
 #   if(is.null(graf)) graf<-data.frame(reamos,LS-qt) else graf<-rbind(graf,data.frame(reamos,LS-qt))
 # }
 # 
+library(QuantPsyc) 
+library(energy)  
+dados<-NULL
+for(i in 1:5){
+  dados<-cbind(dados,rnorm(100,sample(seq(50:100),1),sample(seq(1:3),1)))
+};y=dados
+
+dados<-matrix(c(rpois(1000,5),rpois(1000,3)),ncol=2);y=dados
+
+mvnorm.etest(dados,R=100)
+mult.norm(dados,chicrit=0.001)$mult.test
 
 
   
